@@ -23,11 +23,20 @@ const createSendToken = (user, statusCode, req, res) => {
     httpOnly: true,
     // sercure =  req.secure || req.headers('x-forwarded-proto') === 'https'
   };
+  // video 224 heroku adding
   // if () cookieOption.secure = true;
   if (process.env.NODE_ENV === 'production') cookieOption.secure = true;
 
   // Remove password from output
   res.cookie('jwt', token, cookieOption);
+  // video 224 heroku adding
+  // res.cookie('jwt', token,  {
+  //   expires: new Date(
+  //     Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
+  //   ),
+  //   httpOnly: true,
+  //   // sercure =  req.secure || req.headers('x-forwarded-proto') === 'https'
+  // };);
 
   res.status(statusCode).json({
     status: 'success',
