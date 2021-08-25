@@ -34,3 +34,10 @@ process.on('unhandaledRejection', (err) => {
     process.exit(1);
   });
 });
+
+// proces.on('SIGTERM', () => {
+//   console.log('SIGTERM RECEIVED. Shutting... down gracegully');
+//   server.close(() => {
+//     console.log('Process terminated');
+//   });
+// });
