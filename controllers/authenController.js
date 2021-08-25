@@ -17,7 +17,6 @@ const signToken = (id) => {
 const createSendToken = (user, statusCode,req, res) => {
   const token = signToken(user._id);
   // if (process.env.NODE_ENV === 'production') cookieOption.secure = true;
-
   // Remove password from output
   res.cookie('jwt', token, {
     expires: new Date(
@@ -27,6 +26,7 @@ const createSendToken = (user, statusCode,req, res) => {
     sercure = req.secure || req.headers('x-forwarded-proto') === 'https'
   });
 
+  
   res.status(statusCode).json({
     status: 'success',
     token,
