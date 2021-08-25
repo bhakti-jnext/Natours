@@ -37,6 +37,9 @@ app.use(cors());
 //   orogon:'https://www.natours.com'
 // }))
 
+app.options('*', cors());
+// app.options('/api/v1/tour/:id', cors()) // example
+
 // Serving static files
 app.use(express.static(path.join(__dirname, 'public')));
 
